@@ -2,13 +2,16 @@
 /* Custom functions code goes here. */
 require_once 'template-parts/board.php';
 require_once 'template-parts/snack-title.php';
+require_once 'template-parts/snack-description.php';
+require_once 'template-parts/snack-callouts.php';
 
 // The proper way to enqueue GSAP script in WordPress
 // wp_enqueue_script( $handle, $src, $deps, $ver, $in_footer );
 function theme_gsap_script()
 {
   wp_enqueue_style('maincss', get_stylesheet_directory_uri() . '/css/styles.css?v=' . time(), array(), false, 'all');
-  wp_enqueue_style('snack-titles-css', get_stylesheet_directory_uri() . '/css/snack-titles.css?v=' . time(), array(), false, 'all');
+  // wp_enqueue_style('snack-titles-css', get_stylesheet_directory_uri() . '/css/snack-titles.css?v=' . time(), array(), false, 'all');
+  wp_enqueue_style('snack-css', get_stylesheet_directory_uri() . '/css/snacks.css?v=' . time(), array(), false, 'all');
 
 
 
