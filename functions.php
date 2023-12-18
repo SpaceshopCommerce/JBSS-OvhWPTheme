@@ -1,6 +1,7 @@
 <?php
 /* Custom functions code goes here. */
 require_once 'template-parts/board.php';
+require_once 'template-parts/snack-title.php';
 
 // The proper way to enqueue GSAP script in WordPress
 // wp_enqueue_script( $handle, $src, $deps, $ver, $in_footer );
