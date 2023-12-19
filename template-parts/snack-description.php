@@ -29,16 +29,20 @@ if (!class_exists('Icon_Snack_Description_Shortcode')) {
 
       // Check if the repeater field exists
       if (have_rows('product_description')) {
-        echo '<h2 id="product-ingredients">';
+        $font_size = get_field('product_description_font_size'); // Get the font-size field value
+        $font_size_unit = 'px';
+        $font_size_full = $font_size . $font_size_unit;
+
+        echo '<h2 id="product-ingredients" style="font-size: ' . esc_attr($font_size_full) . '">';
 
         // Loop through rows of data
         while (have_rows('product_description')) : the_row();
           // Display a sub field value
           $text = get_sub_field('description_text');
-          echo '<span class="line">' . esc_html($text) . '</span>';
+          echo '<span class="line" style="font-size: ' . esc_attr($font_size_full) . '!important;">' . esc_html($text) . '</span>';
         endwhile;
 
-        echo '</div>';
+        echo '</h2>';
       }
 
       // Get the contents of the buffer and end buffering
