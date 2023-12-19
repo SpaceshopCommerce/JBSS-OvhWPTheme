@@ -35,14 +35,22 @@ if (!class_exists('Icon_Snack_Title_Shortcode')) {
         while (have_rows('product_display_title')) : the_row();
           // Display a sub field value
           $text = get_sub_field('text');
+          $font_family = get_sub_field('font_family');
+          $line_height = get_sub_field('line_height');
+          $top_offset = get_sub_field('top_offset');
           $size_value = get_sub_field('font_size');
           $size_unit = 'px';
           $size_full = $size_value . $size_unit;
-          if ($size_value == 70) {
-            echo '<span class="line">' . esc_html($text) . '</span>';
-          } else {
-            echo '<span class="line" style="font-size: ' . esc_html($size_full) . '">' . esc_html($text) . '</span>';
+
+          $style = "font-size: " . esc_attr($size_full);
+          if ($line_height) {
+            $style .= "; line-height: " . esc_attr($line_height) . "px";
           }
+          if ($top_offset) {
+            $style .= "; top: -" . esc_attr($top_offset) . "px";
+          }
+
+          echo '<span class="line font--' . esc_attr($font_family) . '" style="' . $style . '">' . esc_html($text) . '</span>';
         endwhile;
 
         echo '</h1>';

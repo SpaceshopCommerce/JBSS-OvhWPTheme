@@ -1,11 +1,16 @@
+:root {
+  --snack-page-background: #BED7E9;
+  --snack-foreground: #73B1DF;
+  --snack-background: #003C35;
+}
+
+
 #product-title span{
   display: block;
 }
 #snack-facts .w-image {
   max-height: 42px;
 }
-
-
 
 /* Snack Icons */
 @media(min-width: 601px) and (max-width: 1039px){
@@ -184,6 +189,81 @@ body .dipped h1#product-title .line-two {
   font-family: brice-bold-condensed,sans-serif!important
 }
 
+// New edits
+.single-snack .l-canvas {
+  background-color: var(--snack-page-background) !important;
+}
+
+// Image Carousel
+body.single-snack #snack-container .owl-prev:after, body.single-snack #snack-container .owl-next:after {
+  content: ''!important;
+}
+
+.single-snack #snack-container .owl-next,
+.single-snack #snack-container .owl-next:hover {
+  background-image: url(/wp-content/themes/ovh/images/right-arrow.png)!important;
+  background-repeat: no-repeat!important;
+  background-position: center!important;
+}
+
+.single-snack #snack-container .owl-prev,
+.single-snack #snack-container .owl-prev:hover {
+  background-image: url(/wp-content/themes/ovh/images/left-arrow.png)!important;
+  background-repeat: no-repeat!important;
+  background-position: center!important;
+}
+
+#pedestal {
+  clip-path: polygon(5% 0, 97% 0, 100% 100%, 0% 100%);
+  background-color: var(--snack-background);
+}
+
+#snack-info {
+  max-width: 700px!important;
+  margin-left: auto!important;
+  margin-right: auto!important;
+}
+
+#product-title .line {
+  font-size: 60px;
+  color: white;
+  font-family: brice-bold-semicondensed,sans-serif;
+  line-height: 58px;
+}
+
+.font--semi {
+  font-family: brice-semibold,sans-serif!important;
+}
+
+.font--semi-bold-con {
+  font-family: brice-semibold-semicondensed,sans-serif!important;
+}
+
+.font--bold {
+  font-family: brice-bold,sans-serif!important;
+}
+
+.font--bold-semi {
+  font-family: brice-bold-semicondensed,sans-serif!important;
+}
+
+.font--bold-con {
+  font-family: brice-bold-condensed,sans-serif!important;
+}
+
+.font--black {
+  font-family: brice-black-expanded,sans-serif!important;
+}
+
+.font--black-semi {
+  font-family: brice-black-semiexpanded,sans-serif!important;
+}
+
+#snack-facts {
+  max-width: 710px!important;
+  margin-left: auto!important;
+  margin-right: auto!important;
+}
 
 .callouts{
   display: flex;
@@ -210,5 +290,19 @@ body .dipped h1#product-title .line-two {
 
 .callout .callout-icon {
   margin-right: 20px;
-  max-width: 50px;
+  max-height: 42px;
+}
+
+#product-ingredients h2, #product-ingredients .line {
+  font-family: brice-bold-condensed,sans-serif!important;
+  color: var(--snack-foreground);
+  font-size: 28px;
+}
+
+.snack-background-box > .vc_column-inner{
+  width: 950px!important;
+  max-width: 100%!important;
+  max-height: 850px!important;
+  margin-left: auto!important;
+  background:var(--snack-background);
 }
