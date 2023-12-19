@@ -29,7 +29,7 @@ if (!class_exists('Icon_Snack_Callouts_Shortcode')) {
 
       // Check if the repeater field exists
       if (have_rows('product_callouts')) {
-        echo '<div id="snack-facts" class="callouts">';
+        echo '<div id="snack-facts" class="callouts g-cols wpb_row us_custom_32ba380c via_flex valign_top type_default stacking_default">';
 
         // Loop through rows of data
         while (have_rows('product_callouts')) : the_row();
