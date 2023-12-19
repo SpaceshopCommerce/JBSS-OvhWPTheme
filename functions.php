@@ -57,6 +57,33 @@ function create_snack_post_type()
 
 add_action('init', 'create_snack_post_type');
 
+function set_color_variables() {
+    // Check if any of the fields have a value
+    $foreground_color = get_field('foreground_color');
+    $background_color = get_field('background_color');
+    $page_background_color = get_field('page_background_color');
+
+    // Start output only if any field has a value
+    if ($foreground_color || $background_color || $page_background_color) {
+        echo '<style>:root {';
+
+        if ($foreground_color) {
+            echo '--snack-foreground: ' . esc_attr($foreground_color) . ' !important;';
+        }
+        if ($background_color) {
+            echo '--snack-background: ' . esc_attr($background_color) . '!important;';
+        }
+        if ($page_background_color) {
+            echo '--snack-page-background: ' . esc_attr($page_background_color) . '!important;';
+        }
+
+        echo '}</style>';
+    }
+}
+
+// Hook the function to an appropriate action, like wp_head
+add_action('wp_head', 'set_color_variables');
+
 
 //    function add_css(){
 //        wp_enqueue_style( 'maincss', get_template_directory_uri() . '/css/styles.css?v='.time(), array(), false, 'all' );
