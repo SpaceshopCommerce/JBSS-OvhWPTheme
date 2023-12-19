@@ -29,7 +29,10 @@ if (!class_exists('Icon_Snack_Title_Shortcode')) {
 
       // Check if the repeater field exists
       if (have_rows('product_display_title')) {
-        echo '<h1 id="product-title">';
+        // Check the product_display_title_color field
+        $title_color_class = get_field('product_display_title_color') ? 'color--white' : '';
+
+        echo '<h1 id="product-title" class="' . esc_attr($title_color_class) . '">';
 
         // Loop through rows of data
         while (have_rows('product_display_title')) : the_row();
