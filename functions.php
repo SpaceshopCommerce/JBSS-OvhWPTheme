@@ -4,7 +4,6 @@ require_once 'template-parts/board.php';
 require_once 'template-parts/snack-title.php';
 require_once 'template-parts/snack-description.php';
 require_once 'template-parts/snack-callouts.php';
-
 // The proper way to enqueue GSAP script in WordPress
 // wp_enqueue_script( $handle, $src, $deps, $ver, $in_footer );
 function theme_gsap_script()
@@ -32,6 +31,9 @@ function theme_gsap_script()
     // Your animation code file - with gsap.js passed as a dependency
     wp_enqueue_script('gsap-js2', get_stylesheet_directory_uri() . '/js/app2.js', array('gsap-js'), false, true);
   }
+
+  // enqueue snacks.js
+  wp_enqueue_script('snacks-js', get_stylesheet_directory_uri() . '/js/snacks.js', array(), false, true);
 }
 add_action('wp_enqueue_scripts', 'theme_gsap_script');
 
