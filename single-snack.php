@@ -1,4 +1,4 @@
-<?php defined( 'ABSPATH' ) OR die( 'This script cannot be accessed directly.' );
+<?php defined('ABSPATH') or die('This script cannot be accessed directly.');
 
 /**
  * The template for displaying all single posts
@@ -7,22 +7,21 @@
  * you should find all the needed hooks there.
  */
 
-if ( function_exists( 'us_load_template' ) ) {
+if (function_exists('us_load_template')) {
 
-	us_load_template( 'templates/single' );
-
+  us_load_template('templates/single');
 } else {
-	get_header();
-	?>
-	<main id="page-content" class="l-main">
-		<?php
-		while ( have_posts() ) {
-			the_post();
+  get_header();
+?>
+  <main id="page-content" class="l-main">
+    <?php
+    while (have_posts()) {
+      the_post();
 
-			get_template_part( 'content' );
-		}
-		?>
-	</main>
-	<?php
-	get_footer();
+      get_template_part('content');
+    }
+    ?>
+  </main>
+<?php
+  get_footer();
 }
