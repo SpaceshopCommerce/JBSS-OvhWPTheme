@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("snacks.js loaded");
   // Function to handle the click event
   function handleTabClick(event) {
     var tabItem = event.currentTarget;
