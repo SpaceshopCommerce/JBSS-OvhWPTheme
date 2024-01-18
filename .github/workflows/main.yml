@@ -1,0 +1,36 @@
+name: Deploy to WP Engine
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+      - staging
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Environment
+      id: setup-env
+      run: |
+        if [[ "${{ github.base_ref }}" == "staging" ]]; then
+          echo "WPE_ENV=ovhstaging" >> $GITHUB_ENV
+        elif [[ "${{ github.base_ref }}" == "main" ]]; then
+          echo "WPE_ENV=orchardvalleyh" >> $GITHUB_ENV
+        fi
+
+    - name: GitHub Action Deploy to WP Engine
+      uses: wpengine/github-action-wpe-site-deploy@v3
+      with:
+        # Deploy vars 
+        WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }} 
+        WPE_ENV: ${{ env.WPE_ENV }}
+        # Deploy Options
+        REMOTE_PATH: "wp-content/themes/ovh/"
+        PHP_LINT: TRUE
+        FLAGS: -azvr --inplace --delete --exclude=".*" --exclude-from=.deployignore
+        CACHE_CLEAR: TRUE
