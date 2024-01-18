@@ -1,230 +1,212 @@
 /* Fix Zoom Level on Nav - Show at large widths*/
 @media screen and (max-width: 9999px) {
-    .w-nav.ush_menu_1>.w-nav-list.level_1 {
-        display:none
-    }
-    .ush_menu_1 .w-nav-control {
-        display: block
-    }
+  .w-nav.ush_menu_1 > .w-nav-list.level_1 {
+    display: none;
+  }
+  .ush_menu_1 .w-nav-control {
+    display: block;
+  }
 }
-
-
-
 
 /* OVH Pledge Bug Fix */
-@media(min-width: 601px){
-    .find-out-more{
-        padding-left: 20px;
-    }
+@media (min-width: 601px) {
+  .find-out-more {
+    padding-left: 20px;
+  }
 }
-
-
-
 
 /* Snack Item Page */
-#snack-facts .w-image{
-    margin-right: 16px;
+#snack-facts .w-image {
+  margin-right: 16px;
 }
 /* Letter spacing around product title */
-#snack-info h1 span{
-    /*line-height: 70px;*/
+#snack-info h1 span {
+  /*line-height: 70px;*/
 }
 
-
-@media(min-width: 601px) and (max-width: 919px){
-    /*#snack-info h1#product-title span{*/
-    /*    font-size: 40px !important;*/
-    /*    line-height: 20px !important;*/
-    /*}*/
+@media (min-width: 601px) and (max-width: 919px) {
+  /*#snack-info h1#product-title span{*/
+  /*    font-size: 40px !important;*/
+  /*    line-height: 20px !important;*/
+  /*}*/
 }
-
-
-
-
 
 /* Home Page Mobile Overlap */
 .mhome-10 {
-    min-height: 600px !important;
+  min-height: 600px !important;
 }
-.mhome-board .board-1.board-h1{
-    top: -20px !important;
+.mhome-board .board-1.board-h1 {
+  top: -20px !important;
 }
 .mhome-board .board-4.board-h2 {
-    top: 300px !important;
+  top: 300px !important;
 }
 
-
-
-
-
-
-
-
-
-
-
 h1#product-title {
-    line-height: .8!important
+  line-height: 0.8 !important;
 }
 
 .dipped-blueberries h1#product-title {
-    line-height: 0.75!important
+  line-height: 0.75 !important;
 }
 
-.keto h1#product-title,.cheesy h1#product-title,.salted-caramel h1#product-title {
-    line-height: 0.6!important
+.keto h1#product-title,
+.cheesy h1#product-title,
+.salted-caramel h1#product-title {
+  line-height: 0.6 !important;
 }
 
 .cheesy h1#product-title {
-    line-height: 0.7!important
+  line-height: 0.7 !important;
 }
 
 .keto h1#product-title {
-    line-height: 0.6!important
+  line-height: 0.6 !important;
 }
 
 .all-good h1#product-title {
-    color: #003C35!important
+  color: #003c35 !important;
 }
-.cran-nut h1#product-title{
-    transform-origin: 0% 0%;
-    transform: scale(.67);
+.cran-nut h1#product-title {
+  transform-origin: 0% 0%;
+  transform: scale(0.67);
 }
 .cran-nut h1#product-title .line-one {
-    font-size: 68px!important
+  font-size: 68px !important;
 }
 
 .cran-nut h1#product-title .line-two {
-    font-size: 94px!important
+  font-size: 94px !important;
 }
 
 .cran-nut h1#product-title .line-three {
-    font-size: 98px!important
+  font-size: 98px !important;
 }
 
 .dipped-blueberries h1#product-title .line-one {
-    font-size: 70px!important;
-    font-family: brice-bold,sans-serif!important
+  font-size: 70px !important;
+  font-family: brice-bold, sans-serif !important;
 }
 
 .dipped-blueberries h1#product-title .line-two {
-    font-size: 75px!important;
-    font-family: brice-bold-condensed,sans-serif!important
+  font-size: 75px !important;
+  font-family: brice-bold-condensed, sans-serif !important;
 }
 
 .dipped-cherries h1#product-title .line-one {
-    font-size: 60px!important;
-    font-family: brice-bold,sans-serif!important
+  font-size: 60px !important;
+  font-family: brice-bold, sans-serif !important;
 }
 
 .dipped-cherries h1#product-title .line-two {
-    font-size: 89px!important;
-    font-family: brice-bold-condensed,sans-serif!important
+  font-size: 89px !important;
+  font-family: brice-bold-condensed, sans-serif !important;
 }
 
 .dipped-almonds h1#product-title .line-one {
-    font-size: 70px!important;
-    font-family: brice-bold-semicondensed,sans-serif!important
+  font-size: 70px !important;
+  font-family: brice-bold-semicondensed, sans-serif !important;
 }
 
 .dipped-almonds h1#product-title .line-two {
-    font-size: 77px!important;
-    font-family: brice-bold-condensed,sans-serif!important
+  font-size: 77px !important;
+  font-family: brice-bold-condensed, sans-serif !important;
 }
 
 .all-good h1#product-title .line-one {
-    font-size: 49px!important;
-    font-family: brice-bold,sans-serif!important
+  font-size: 49px !important;
+  font-family: brice-bold, sans-serif !important;
 }
 
 .all-good h1#product-title .line-two {
-    font-size: 67px!important;
-    font-family: brice-bold-condensed,sans-serif!important
+  font-size: 67px !important;
+  font-family: brice-bold-condensed, sans-serif !important;
 }
 
 .all-good h1#product-title .line-three {
-    font-size: 39px!important;
-    font-family: brice-bold-expanded,sans-serif!important;
-    top: -20px!important;
-    position: relative
+  font-size: 39px !important;
+  font-family: brice-bold-expanded, sans-serif !important;
+  top: -20px !important;
+  position: relative;
 }
 
 .salted-caramel h1#product-title {
-    color: #00807A!important
+  color: #00807a !important;
 }
 
-.keto h1#product-title,.omg-omega h1#product-title {
-    color: #003C35!important
+.keto h1#product-title,
+.omg-omega h1#product-title {
+  color: #003c35 !important;
 }
 
 .cheesy h1#product-title {
-    color: #DB4B20!important
+  color: #db4b20 !important;
 }
 
 .omg-omega h1#product-title .line-one {
-    font-size: 66px!important;
-    font-family: brice-black-expanded,sans-serif!important
+  font-size: 66px !important;
+  font-family: brice-black-expanded, sans-serif !important;
 }
 
 .omg-omega h1#product-title .line-two {
-    font-family: brice-bold-semicondensed,sans-serif!important;
-    font-size: 65px!important
+  font-family: brice-bold-semicondensed, sans-serif !important;
+  font-size: 65px !important;
 }
 
 .omg-omega h1#product-title .line-three {
-    font-size: 35px!important;
-    font-family: brice-bold-expanded,sans-serif!important;
-    top: -24px!important;
-    position: relative
+  font-size: 35px !important;
+  font-family: brice-bold-expanded, sans-serif !important;
+  top: -24px !important;
+  position: relative;
 }
 
 .salted-caramel h1#product-title .line-one {
-    font-size: 54px!important;
-    font-family: brice-semibold,sans-serif!important
+  font-size: 54px !important;
+  font-family: brice-semibold, sans-serif !important;
 }
 
 .salted-caramel h1#product-title .line-two {
-    font-size: 57px!important;
-    font-family: brice-semibold-semicondensed,sans-serif!important
+  font-size: 57px !important;
+  font-family: brice-semibold-semicondensed, sans-serif !important;
 }
 
 .salted-caramel h1#product-title .line-three {
-    font-size: 46px!important;
-    font-family: brice-semibold-semicondensed,sans-serif!important;
-    top: -10px;
-    position: relative
+  font-size: 46px !important;
+  font-family: brice-semibold-semicondensed, sans-serif !important;
+  top: -10px;
+  position: relative;
 }
 
 .keto h1#product-title .line-one {
-    font-size: 60px!important;
-    font-family: brice-semibold,sans-serif!important
+  font-size: 60px !important;
+  font-family: brice-semibold, sans-serif !important;
 }
 
 .keto h1#product-title .line-two {
-    font-size: 56px!important;
-    font-family: brice-black-semiexpanded,sans-serif!important
+  font-size: 56px !important;
+  font-family: brice-black-semiexpanded, sans-serif !important;
 }
 
 .keto h1#product-title .line-three {
-    font-size: 42px!important;
-    font-family: brice-semibold,sans-serif!important;
-    top: -10px;
-    position: relative
+  font-size: 42px !important;
+  font-family: brice-semibold, sans-serif !important;
+  top: -10px;
+  position: relative;
 }
 
 .cheesy h1#product-title .line-one {
-    font-size: 57px!important;
-    font-family: brice-bold-semicondensed,sans-serif!important
+  font-size: 57px !important;
+  font-family: brice-bold-semicondensed, sans-serif !important;
 }
 
 .cheesy h1#product-title .line-two {
-    font-family: brice-semibold,sans-serif!important;
-    font-size: 60px!important
+  font-family: brice-semibold, sans-serif !important;
+  font-size: 60px !important;
 }
 
 .cheesy h1#product-title .line-three {
-    font-size: 37px!important;
-    font-family: brice-black-expanded,sans-serif!important;
-    top: -18px!important;
-    position: relative
+  font-size: 37px !important;
+  font-family: brice-black-expanded, sans-serif !important;
+  top: -18px !important;
+  position: relative;
 }
