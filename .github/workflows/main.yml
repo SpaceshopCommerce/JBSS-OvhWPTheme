@@ -14,18 +14,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Get PR Labels
-      id: pr-labels
-      uses: jimschubert/query-github-action@v1
-      with:
-        query: ${{ github.event.pull_request.url }}
-        token: ${{ secrets.GITHUB_TOKEN }}
-
     - name: Check for Deployment Label
       id: check-label
       run: |
         DEPLOY_LABEL="deploy"
-        PR_LABELS="${{ steps.pr-labels.outputs.data }}"
+        PR_LABELS=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          "${{ github.event.pull_request.issue_url }}/labels")
         if echo "$PR_LABELS" | grep -q "\"name\": \"$DEPLOY_LABEL\""; then
           echo "Deployment label found."
           echo "DO_DEPLOY=true" >> $GITHUB_ENV
