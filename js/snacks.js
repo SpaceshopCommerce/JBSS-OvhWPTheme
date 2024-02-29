@@ -1,35 +1,69 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Function to handle the click event
-  function handleTabClick(event) {
-    var tabItem = event.currentTarget;
-    var tabId = tabItem.getAttribute("aria-controls");
-    //strip out the string content- from the tabId
-    tabId = tabId.replace("content-", "");
+document.addEventListener("DOMContentLoaded", () => {
+  const handleizeTabTitle = (tabTitle) => {
+    return tabTitle.toLowerCase().replace(/\s/g, "-");
+  };
 
-    // Find the element in the DOM with the ID equal to tabId
-    var tabContent = document.getElementById(tabId);
+  const addHashToLocation = (tabTitle, slideIndex = 0) => {
+    let tabHash = handleizeTabTitle(tabTitle);
+    window.location.hash = `${tabHash}?slide=${slideIndex}`;
+  };
+
+  const handleTabClick = (event) => {
+    let tabItem = event.currentTarget;
+    let tabTitle = tabItem.querySelector(".w-tabs-item-title").innerText;
+    let tabHash = handleizeTabTitle(tabTitle);
+
+    let tabId = tabItem.getAttribute("aria-controls");
+    tabId = tabId.replace("content-", "");
+    let tabContent = document.getElementById(tabId);
 
     if (tabContent) {
-      console.log("Tab content found:", tabContent);
-      // Find the .slick-slider element within the tab content
-      var slickSlider = tabContent.querySelector(".slick-slider");
+      let slickSlider = tabContent.querySelector(".slick-slider");
 
       if (slickSlider) {
-        // Refresh the slider
         jQuery(slickSlider).slick("refresh");
-
-        console.log("Slick slider refreshed.");
-      } else {
-        console.log("No slick slider found in the tab content.");
+        jQuery(slickSlider).on(
+          "afterChange",
+          function (event, slick, currentSlide) {
+            addHashToLocation(tabTitle, currentSlide);
+          }
+        );
       }
-    } else {
-      console.log("No content found for tabId:", tabId);
+    }
+
+    addHashToLocation(tabTitle);
+  };
+
+  const tabItems = document.querySelectorAll(".w-tabs-item");
+  tabItems.forEach((tabItem) => {
+    tabItem.addEventListener("click", handleTabClick);
+    let tabTitle = tabItem.querySelector(".w-tabs-item-title").innerText;
+    let tabHash = handleizeTabTitle(tabTitle);
+    tabItem.setAttribute("data-tab-hash", tabHash);
+  });
+
+  let pageHash = window.location.hash;
+  if (pageHash) {
+    let [tabHash, queryParams] = pageHash.split("?");
+    let params = new URLSearchParams(queryParams);
+    let slideIndex = params.get("slide");
+
+    let tabItem = document.querySelector(
+      `.w-tabs-item[data-tab-hash="${tabHash.replace("#", "")}"]`
+    );
+    if (tabItem) {
+      let tabId = tabItem.getAttribute("aria-controls");
+      tabId = tabId.replace("content-", "");
+      let tabContent = document.getElementById(tabId);
+
+      if (tabContent) {
+        let slickSlider = tabContent.querySelector(".slick-slider");
+        if (slickSlider && slideIndex !== null) {
+          jQuery(slickSlider).slick("slickGoTo", parseInt(slideIndex));
+        }
+      }
+
+      tabItem.click();
     }
   }
-
-  // Attach the event listener to all elements with class 'w-tab-item'
-  var tabItems = document.querySelectorAll(".w-tabs-item");
-  tabItems.forEach(function (tabItem) {
-    tabItem.addEventListener("click", handleTabClick);
-  });
 });
