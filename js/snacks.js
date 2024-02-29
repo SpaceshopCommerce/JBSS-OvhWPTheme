@@ -3,25 +3,18 @@ document.addEventListener("DOMContentLoaded", () => {
     return tabTitle.toLowerCase().replace(/\s/g, "-");
   };
 
-  const unhandleizeTabTitle = (tabTitle) => {
-    return tabTitle.replace(/-/g, " ");
-  };
-
-  const addHashToLocation = (tabTitle) => {
+  const addHashToLocation = (tabTitle, slideIndex = 0) => {
     let tabHash = handleizeTabTitle(tabTitle);
-    window.location.hash = tabHash;
+    window.location.hash = `${tabHash}?slide=${slideIndex}`;
   };
 
   const handleTabClick = (event) => {
     let tabItem = event.currentTarget;
-    let tabId = tabItem.getAttribute("aria-controls");
     let tabTitle = tabItem.querySelector(".w-tabs-item-title").innerText;
     let tabHash = handleizeTabTitle(tabTitle);
 
-    addHashToLocation(tabTitle);
-
+    let tabId = tabItem.getAttribute("aria-controls");
     tabId = tabId.replace("content-", "");
-
     let tabContent = document.getElementById(tabId);
 
     if (tabContent) {
@@ -29,8 +22,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (slickSlider) {
         jQuery(slickSlider).slick("refresh");
-      } 
+        jQuery(slickSlider).on(
+          "afterChange",
+          function (event, slick, currentSlide) {
+            addHashToLocation(tabTitle, currentSlide);
+          }
+        );
+      }
     }
+
+    addHashToLocation(tabTitle);
   };
 
   const tabItems = document.querySelectorAll(".w-tabs-item");
@@ -43,10 +44,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let pageHash = window.location.hash;
   if (pageHash) {
+    let [tabHash, queryParams] = pageHash.split("?");
+    let params = new URLSearchParams(queryParams);
+    let slideIndex = params.get("slide");
+
     let tabItem = document.querySelector(
-      `.w-tabs-item[data-tab-hash="${pageHash.replace("#", "")}"]`
+      `.w-tabs-item[data-tab-hash="${tabHash.replace("#", "")}"]`
     );
     if (tabItem) {
+      let tabId = tabItem.getAttribute("aria-controls");
+      tabId = tabId.replace("content-", "");
+      let tabContent = document.getElementById(tabId);
+
+      if (tabContent) {
+        let slickSlider = tabContent.querySelector(".slick-slider");
+        if (slickSlider && slideIndex !== null) {
+          jQuery(slickSlider).slick("slickGoTo", parseInt(slideIndex));
+        }
+      }
+
       tabItem.click();
     }
   }
