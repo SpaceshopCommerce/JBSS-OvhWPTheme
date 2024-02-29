@@ -1,35 +1,53 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Function to handle the click event
-  function handleTabClick(event) {
-    var tabItem = event.currentTarget;
-    var tabId = tabItem.getAttribute("aria-controls");
-    //strip out the string content- from the tabId
+document.addEventListener("DOMContentLoaded", () => {
+  const handleizeTabTitle = (tabTitle) => {
+    return tabTitle.toLowerCase().replace(/\s/g, "-");
+  };
+
+  const unhandleizeTabTitle = (tabTitle) => {
+    return tabTitle.replace(/-/g, " ");
+  };
+
+  const addHashToLocation = (tabTitle) => {
+    let tabHash = handleizeTabTitle(tabTitle);
+    window.location.hash = tabHash;
+  };
+
+  const handleTabClick = (event) => {
+    let tabItem = event.currentTarget;
+    let tabId = tabItem.getAttribute("aria-controls");
+    let tabTitle = tabItem.querySelector(".w-tabs-item-title").innerText;
+    let tabHash = handleizeTabTitle(tabTitle);
+
+    addHashToLocation(tabTitle);
+
     tabId = tabId.replace("content-", "");
 
-    // Find the element in the DOM with the ID equal to tabId
-    var tabContent = document.getElementById(tabId);
+    let tabContent = document.getElementById(tabId);
 
     if (tabContent) {
-      console.log("Tab content found:", tabContent);
-      // Find the .slick-slider element within the tab content
-      var slickSlider = tabContent.querySelector(".slick-slider");
+      let slickSlider = tabContent.querySelector(".slick-slider");
 
       if (slickSlider) {
-        // Refresh the slider
         jQuery(slickSlider).slick("refresh");
+      } 
+    }
+  };
 
-        console.log("Slick slider refreshed.");
-      } else {
-        console.log("No slick slider found in the tab content.");
-      }
-    } else {
-      console.log("No content found for tabId:", tabId);
+  const tabItems = document.querySelectorAll(".w-tabs-item");
+  tabItems.forEach((tabItem) => {
+    tabItem.addEventListener("click", handleTabClick);
+    let tabTitle = tabItem.querySelector(".w-tabs-item-title").innerText;
+    let tabHash = handleizeTabTitle(tabTitle);
+    tabItem.setAttribute("data-tab-hash", tabHash);
+  });
+
+  let pageHash = window.location.hash;
+  if (pageHash) {
+    let tabItem = document.querySelector(
+      `.w-tabs-item[data-tab-hash="${pageHash.replace("#", "")}"]`
+    );
+    if (tabItem) {
+      tabItem.click();
     }
   }
-
-  // Attach the event listener to all elements with class 'w-tab-item'
-  var tabItems = document.querySelectorAll(".w-tabs-item");
-  tabItems.forEach(function (tabItem) {
-    tabItem.addEventListener("click", handleTabClick);
-  });
 });
