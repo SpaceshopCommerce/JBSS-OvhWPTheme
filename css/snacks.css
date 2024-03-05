@@ -98,7 +98,7 @@
 
 .single-snack #snack-container .owl-next,
 .single-snack #snack-container .owl-next:hover {
-  background-image: url(/wp-content/themes/ovh/images/right-arrow--white.png) !important;
+  background-image: url(/wp-content/themes/ovh/images/right-arrow.png) !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
   transition: all 0.2s ease-in-out;
@@ -373,7 +373,5 @@ body .ovh-button-tabs .wpsisac-slick-carousal.design-1 .slick-prev {
     display: block;
   }
 }
-
-
 
 
