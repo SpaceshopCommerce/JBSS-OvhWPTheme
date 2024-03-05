@@ -98,7 +98,7 @@
 
 .single-snack #snack-container .owl-next,
 .single-snack #snack-container .owl-next:hover {
-  background-image: url(/wp-content/themes/ovh/images/right-arrow.png) !important;
+  background-image: url(/wp-content/themes/ovh/images/right-arrow--white.png) !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
   transition: all 0.2s ease-in-out;
@@ -106,7 +106,7 @@
 
 .single-snack #snack-container .owl-prev,
 .single-snack #snack-container .owl-prev:hover {
-  background-image: url(/wp-content/themes/ovh/images/left-arrow.png) !important;
+  background-image: url(/wp-content/themes/ovh/images/left-arrow--white.png) !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
   transition: all 0.2s ease-in-out;
