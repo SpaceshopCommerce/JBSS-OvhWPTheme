@@ -27,11 +27,17 @@ if (!class_exists('Icon_Snack_Callouts_Shortcode')) {
       // Start output buffering
       ob_start();
 
+
+      // Check for acf field 'product_callout_one_liner'
+      if (get_field('product_callout_one_liner')) {
+        $one_liner = get_field('product_callout_one_liner');
+        echo '<div id="snack-callout"><p class="one-liner font--bold">' . esc_html($one_liner) . '</p></div>';
+      }
+
       // Check if the repeater field exists
       if (have_rows('product_callouts')) {
         $row_count = count(get_field('product_callouts'));
         $additional_class = $row_count > 3 ? 'grid--alt' : '';
-
 
         echo '<div id="snack-facts" class="callouts g-cols wpb_row us_custom_32ba380c via_flex valign_top type_default stacking_default ' . $additional_class . '">';
 
