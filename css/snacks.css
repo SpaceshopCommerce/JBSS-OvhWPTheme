@@ -151,6 +151,31 @@
   position: relative;
 }
 
+#snack-callout {
+  max-width: 710px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center;
+}
+
+#snack-callout p {
+  font-family: brice-bold-semicondensed, sans-serif !important;
+  font-size: 26px !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+  #snack-callout p {
+    font-size: 22px !important;
+  }
+  #snack-callout {
+    text-align: left;
+    padding: 0 1.5rem;
+  }
+}
+
 #snack-facts {
   max-width: 710px !important;
   margin-left: auto !important;
