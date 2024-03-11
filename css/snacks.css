@@ -164,6 +164,7 @@
   line-height: 1 !important;
   text-transform: uppercase !important;
   margin-bottom: 24px;
+  color: var(--snack-foreground);
 }
 
 @media (max-width: 600px) {
