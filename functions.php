@@ -4,6 +4,7 @@ require_once 'template-parts/board.php';
 require_once 'template-parts/snack-title.php';
 require_once 'template-parts/snack-description.php';
 require_once 'template-parts/snack-callouts.php';
+require_once 'template-parts/snack-pedestal.php';
 // The proper way to enqueue GSAP script in WordPress
 // wp_enqueue_script( $handle, $src, $deps, $ver, $in_footer );
 function theme_gsap_script()
