@@ -26,36 +26,42 @@ Author URI: https://iconcommerce.com
   /* Full screen height */
   overflow: hidden;
   position: relative;
-  animation: fadeIn 1s linear infinite;
+  /* animation: fadeIn 1s linear infinite; */
 }
 
-.image-carousel--reverse .carousel-track {
-  animation: scroll 10s linear infinite;
-}
 
 .carousel-track {
-  height: 200%;
-  /* Enough height to fit all images */
+  height: auto;
   animation: scroll-reverse 10s linear infinite;
   /* Adjust time for different speeds */
   display: flex;
   flex-direction: column;
 }
 
+#carousel-2 .carousel-track {
+  animation: scroll 15s linear infinite;
+}
+
+#carousel-3 .carousel-track {
+  animation: scroll-reverse 15s linear infinite;
+}
+
 .image-carousel .carousel-item {
   width: 100%;
-  height: 25%;
+  height: 20%;
   /* Adjust based on the number of images */
   padding-top: 30px;
   padding-bottom: 30px;
+  text-align: center;
 }
 
 .image-carousel .carousel-item img {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: auto;
   /* Adjust based on the number of images */
   object-fit: contain;
   max-height: 100% !important;
+  margin: 0 auto;
 }
 
 /* Keyframes to create the continuous scrolling effect */

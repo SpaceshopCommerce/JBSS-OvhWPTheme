@@ -43,8 +43,11 @@ get_header();
   }
 </style>
 
-
-
+<?php
+// get the acf field product_carousel
+$product_carousel_1 = get_field('carousel_products_1');
+$product_carousel_2 = get_field('carousel_products_2');
+?>
 
 
 <div class="home-mobile mhome-container">
@@ -180,15 +183,34 @@ get_header();
       <div class="home-1-sub-1 h-100 home-item overflow-hidden">
         <div class="image-carousel">
           <div class="carousel-track">
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_CranNutMix_1.85oz_SUB-Front.png" alt="Image 1"></div>
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_SaltedCaramelMunchMix_1.85oz_SUB-Front-1.png" alt="Image 2"></div>
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_CranNutMix_1.85oz_SUB-Front.png" alt="Image 3"></div>
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_SaltedCaramelMunchMix_1.85oz_SUB-Front-1.png" alt="Image 4"></div>
-            <!-- Repeat the images to allow for continuous effect -->
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_CranNutMix_1.85oz_SUB-Front.png" alt="Image 1"></div>
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_SaltedCaramelMunchMix_1.85oz_SUB-Front-1.png" alt="Image 2"></div>
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_CranNutMix_1.85oz_SUB-Front.png" alt="Image 3"></div>
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_SaltedCaramelMunchMix_1.85oz_SUB-Front-1.png" alt="Image 4"></div>
+            <?php if (have_rows('carousel_products_1')) : ?>
+              <?php while (have_rows('carousel_products_1')) : the_row(); ?>
+                <?php
+                $product = get_sub_field('product');
+                $product_images = get_field('product_images', $product);
+                if ($product_images) :
+                  $first_image = $product_images[0];
+                ?>
+                  <div class="carousel-item">
+                    <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
+                  </div>
+                <?php endif; ?>
+              <?php endwhile; ?>
+            <?php endif; ?>
+            <?php if (have_rows('carousel_products_1')) : ?>
+              <?php while (have_rows('carousel_products_1')) : the_row(); ?>
+                <?php
+                $product = get_sub_field('product');
+                $product_images = get_field('product_images', $product);
+                if ($product_images) :
+                  $first_image = $product_images[0];
+                ?>
+                  <div class="carousel-item">
+                    <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
+                  </div>
+                <?php endif; ?>
+              <?php endwhile; ?>
+            <?php endif; ?>
           </div>
         </div>
       </div>
@@ -315,17 +337,36 @@ get_header();
   <div class="home-section home-5">
     <div class="home-col w-50 home-5-col-1  ">
       <div class="home-5-sub-1 h-70 home-item overflow-hidden">
-        <div class="image-carousel">
+        <div id="carousel-2" class="image-carousel">
           <div class="carousel-track">
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_CranNutMix_1.85oz_SUB-Front.png" alt="Image 1"></div>
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_SaltedCaramelMunchMix_1.85oz_SUB-Front-1.png" alt="Image 2"></div>
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_CranNutMix_1.85oz_SUB-Front.png" alt="Image 3"></div>
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_SaltedCaramelMunchMix_1.85oz_SUB-Front-1.png" alt="Image 4"></div>
-            <!-- Repeat the images to allow for continuous effect -->
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_CranNutMix_1.85oz_SUB-Front.png" alt="Image 1"></div>
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_SaltedCaramelMunchMix_1.85oz_SUB-Front-1.png" alt="Image 2"></div>
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_CranNutMix_1.85oz_SUB-Front.png" alt="Image 3"></div>
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_SaltedCaramelMunchMix_1.85oz_SUB-Front-1.png" alt="Image 4"></div>
+            <?php if (have_rows('carousel_products_2')) : ?>
+              <?php while (have_rows('carousel_products_2')) : the_row(); ?>
+                <?php
+                $product = get_sub_field('product');
+                $product_images = get_field('product_images', $product);
+                if ($product_images) :
+                  $first_image = $product_images[0];
+                ?>
+                  <div class="carousel-item">
+                    <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
+                  </div>
+                <?php endif; ?>
+              <?php endwhile; ?>
+            <?php endif; ?>
+            <?php if (have_rows('carousel_products_2')) : ?>
+              <?php while (have_rows('carousel_products_2')) : the_row(); ?>
+                <?php
+                $product = get_sub_field('product');
+                $product_images = get_field('product_images', $product);
+                if ($product_images) :
+                  $first_image = $product_images[0];
+                ?>
+                  <div class="carousel-item">
+                    <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
+                  </div>
+                <?php endif; ?>
+              <?php endwhile; ?>
+            <?php endif; ?>
           </div>
         </div>
       </div>
@@ -339,17 +380,36 @@ get_header();
         <img class="center-image" src="/wp-content/uploads/2022/12/Group-740.png" alt="">
       </div>
       <div class="home-5-sub-4 h-70 home-item overflow-hidden">
-        <div class="image-carousel image-carousel--reverse">
+        <div id="carousel-3" class="image-carousel">
           <div class="carousel-track">
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_CranNutMix_1.85oz_SUB-Front.png" alt="Image 1"></div>
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_SaltedCaramelMunchMix_1.85oz_SUB-Front-1.png" alt="Image 2"></div>
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_CranNutMix_1.85oz_SUB-Front.png" alt="Image 3"></div>
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_SaltedCaramelMunchMix_1.85oz_SUB-Front-1.png" alt="Image 4"></div>
-            <!-- Repeat the images to allow for continuous effect -->
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_CranNutMix_1.85oz_SUB-Front.png" alt="Image 1"></div>
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_SaltedCaramelMunchMix_1.85oz_SUB-Front-1.png" alt="Image 2"></div>
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_CranNutMix_1.85oz_SUB-Front.png" alt="Image 3"></div>
-            <div class="carousel-item"><img src="http://localhost:10013/wp-content/uploads/2024/02/DP23350_OVH_SaltedCaramelMunchMix_1.85oz_SUB-Front-1.png" alt="Image 4"></div>
+            <?php if (have_rows('carousel_products_1')) : ?>
+              <?php while (have_rows('carousel_products_1')) : the_row(); ?>
+                <?php
+                $product = get_sub_field('product');
+                $product_images = get_field('product_images', $product);
+                if ($product_images) :
+                  $first_image = $product_images[0];
+                ?>
+                  <div class="carousel-item">
+                    <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
+                  </div>
+                <?php endif; ?>
+              <?php endwhile; ?>
+            <?php endif; ?>
+            <?php if (have_rows('carousel_products_1')) : ?>
+              <?php while (have_rows('carousel_products_1')) : the_row(); ?>
+                <?php
+                $product = get_sub_field('product');
+                $product_images = get_field('product_images', $product);
+                if ($product_images) :
+                  $first_image = $product_images[0];
+                ?>
+                  <div class="carousel-item">
+                    <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
+                  </div>
+                <?php endif; ?>
+              <?php endwhile; ?>
+            <?php endif; ?>
           </div>
         </div>
       </div>
