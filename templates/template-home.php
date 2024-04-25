@@ -187,11 +187,12 @@ $product_carousel_2 = get_field('carousel_products_2');
               <?php while (have_rows('carousel_products_1')) : the_row(); ?>
                 <?php
                 $product = get_sub_field('product');
+                $color = get_sub_field('product_background');
                 $product_images = get_field('product_images', $product);
                 if ($product_images) :
                   $first_image = $product_images[0];
                 ?>
-                  <div class="carousel-item">
+                  <div class="carousel-item" style="background-color: <?=$color?>">
                     <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
                   </div>
                 <?php endif; ?>
@@ -201,11 +202,12 @@ $product_carousel_2 = get_field('carousel_products_2');
               <?php while (have_rows('carousel_products_1')) : the_row(); ?>
                 <?php
                 $product = get_sub_field('product');
+                $color = get_sub_field('product_background');
                 $product_images = get_field('product_images', $product);
                 if ($product_images) :
                   $first_image = $product_images[0];
                 ?>
-                  <div class="carousel-item">
+                  <div class="carousel-item" style="background-color: <?=$color?>">
                     <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
                   </div>
                 <?php endif; ?>
@@ -343,11 +345,12 @@ $product_carousel_2 = get_field('carousel_products_2');
               <?php while (have_rows('carousel_products_2')) : the_row(); ?>
                 <?php
                 $product = get_sub_field('product');
+                $color = get_sub_field('product_background');
                 $product_images = get_field('product_images', $product);
                 if ($product_images) :
                   $first_image = $product_images[0];
                 ?>
-                  <div class="carousel-item">
+                  <div class="carousel-item" style="background-color: <?=$color?>">
                     <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
                   </div>
                 <?php endif; ?>
@@ -357,11 +360,12 @@ $product_carousel_2 = get_field('carousel_products_2');
               <?php while (have_rows('carousel_products_2')) : the_row(); ?>
                 <?php
                 $product = get_sub_field('product');
+                $color = get_sub_field('product_background');
                 $product_images = get_field('product_images', $product);
                 if ($product_images) :
                   $first_image = $product_images[0];
                 ?>
-                  <div class="carousel-item">
+                  <div class="carousel-item" style="background-color: <?=$color?>">
                     <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
                   </div>
                 <?php endif; ?>
@@ -386,11 +390,12 @@ $product_carousel_2 = get_field('carousel_products_2');
               <?php while (have_rows('carousel_products_1')) : the_row(); ?>
                 <?php
                 $product = get_sub_field('product');
+                $color = get_sub_field('product_background');
                 $product_images = get_field('product_images', $product);
                 if ($product_images) :
                   $first_image = $product_images[0];
                 ?>
-                  <div class="carousel-item">
+                  <div class="carousel-item" style="background-color: <?=$color?>">
                     <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
                   </div>
                 <?php endif; ?>
@@ -400,11 +405,12 @@ $product_carousel_2 = get_field('carousel_products_2');
               <?php while (have_rows('carousel_products_1')) : the_row(); ?>
                 <?php
                 $product = get_sub_field('product');
+                $color = get_sub_field('product_background');
                 $product_images = get_field('product_images', $product);
                 if ($product_images) :
                   $first_image = $product_images[0];
                 ?>
-                  <div class="carousel-item">
+                  <div class="carousel-item" style="background-color: <?=$color?>">
                     <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
                   </div>
                 <?php endif; ?>
