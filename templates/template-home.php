@@ -67,10 +67,39 @@ $product_carousel_2 = get_field('carousel_products_2');
   </div>
   <!--  Video  -->
   <div class="mhome-3 w-100 mhome-row mhome-item mhome-item-video">
-    <div class="home-video">
-      <video autoplay muted loop>
-        <source src="/wp-content/uploads/2023/02/PR1.mp4" type="video/mp4" />
-      </video>
+    <div class="image-carousel">
+      <div class="carousel-track">
+        <?php if (have_rows('carousel_products_1')) : ?>
+          <?php while (have_rows('carousel_products_1')) : the_row(); ?>
+            <?php
+            $product = get_sub_field('product');
+            $color = get_sub_field('product_background');
+            $product_images = get_field('product_images', $product);
+            if ($product_images) :
+              $first_image = $product_images[0];
+            ?>
+              <div class="carousel-item" style="background-color: <?= $color ?>">
+                <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
+              </div>
+            <?php endif; ?>
+          <?php endwhile; ?>
+        <?php endif; ?>
+        <?php if (have_rows('carousel_products_1')) : ?>
+          <?php while (have_rows('carousel_products_1')) : the_row(); ?>
+            <?php
+            $product = get_sub_field('product');
+            $color = get_sub_field('product_background');
+            $product_images = get_field('product_images', $product);
+            if ($product_images) :
+              $first_image = $product_images[0];
+            ?>
+              <div class="carousel-item" style="background-color: <?= $color ?>">
+                <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
+              </div>
+            <?php endif; ?>
+          <?php endwhile; ?>
+        <?php endif; ?>
+      </div>
     </div>
   </div>
   <!--  Pledge  -->
@@ -139,11 +168,40 @@ $product_carousel_2 = get_field('carousel_products_2');
   </div>
 
   <!--  Video  -->
-  <div class="mhome-12 w-100 mhome-row mhome-item mhome-item-video">
-    <div class="home-video">
-      <video autoplay muted loop>
-        <source src="/wp-content/uploads/2023/02/PackRoll1-25.webm" type="video/webm" />
-      </video>
+  <div class="mhome-12 w-100 mhome-row mhome-item mhome-item-video overflow-hidden">
+    <div id="carousel-2" class="image-carousel">
+      <div class="carousel-track">
+        <?php if (have_rows('carousel_products_2')) : ?>
+          <?php while (have_rows('carousel_products_2')) : the_row(); ?>
+            <?php
+            $product = get_sub_field('product');
+            $color = get_sub_field('product_background');
+            $product_images = get_field('product_images', $product);
+            if ($product_images) :
+              $first_image = $product_images[0];
+            ?>
+              <div class="carousel-item" style="background-color: <?= $color ?>">
+                <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
+              </div>
+            <?php endif; ?>
+          <?php endwhile; ?>
+        <?php endif; ?>
+        <?php if (have_rows('carousel_products_2')) : ?>
+          <?php while (have_rows('carousel_products_2')) : the_row(); ?>
+            <?php
+            $product = get_sub_field('product');
+            $color = get_sub_field('product_background');
+            $product_images = get_field('product_images', $product);
+            if ($product_images) :
+              $first_image = $product_images[0];
+            ?>
+              <div class="carousel-item" style="background-color: <?= $color ?>">
+                <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
+              </div>
+            <?php endif; ?>
+          <?php endwhile; ?>
+        <?php endif; ?>
+      </div>
     </div>
   </div>
   <!-- Good Food -->
@@ -152,11 +210,40 @@ $product_carousel_2 = get_field('carousel_products_2');
   </div>
 
   <!--  Video  -->
-  <div class="mhome-14 w-100 mhome-row mhome-item mhome-item-video">
-    <div class="home-video">
-      <video autoplay muted loop>
-        <source src="/wp-content/uploads/2023/02/PackRoll2-25.webm" type="video/webm" />
-      </video>
+  <div class="mhome-14 w-100 mhome-row mhome-item mhome-item-video overflow-hidden">
+    <div id="carousel-3" class="image-carousel">
+      <div class="carousel-track">
+        <?php if (have_rows('carousel_products_1')) : ?>
+          <?php while (have_rows('carousel_products_1')) : the_row(); ?>
+            <?php
+            $product = get_sub_field('product');
+            $color = get_sub_field('product_background');
+            $product_images = get_field('product_images', $product);
+            if ($product_images) :
+              $first_image = $product_images[0];
+            ?>
+              <div class="carousel-item" style="background-color: <?= $color ?>">
+                <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
+              </div>
+            <?php endif; ?>
+          <?php endwhile; ?>
+        <?php endif; ?>
+        <?php if (have_rows('carousel_products_1')) : ?>
+          <?php while (have_rows('carousel_products_1')) : the_row(); ?>
+            <?php
+            $product = get_sub_field('product');
+            $color = get_sub_field('product_background');
+            $product_images = get_field('product_images', $product);
+            if ($product_images) :
+              $first_image = $product_images[0];
+            ?>
+              <div class="carousel-item" style="background-color: <?= $color ?>">
+                <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
+              </div>
+            <?php endif; ?>
+          <?php endwhile; ?>
+        <?php endif; ?>
+      </div>
     </div>
   </div>
 
@@ -192,7 +279,7 @@ $product_carousel_2 = get_field('carousel_products_2');
                 if ($product_images) :
                   $first_image = $product_images[0];
                 ?>
-                  <div class="carousel-item" style="background-color: <?=$color?>">
+                  <div class="carousel-item" style="background-color: <?= $color ?>">
                     <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
                   </div>
                 <?php endif; ?>
@@ -207,7 +294,7 @@ $product_carousel_2 = get_field('carousel_products_2');
                 if ($product_images) :
                   $first_image = $product_images[0];
                 ?>
-                  <div class="carousel-item" style="background-color: <?=$color?>">
+                  <div class="carousel-item" style="background-color: <?= $color ?>">
                     <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
                   </div>
                 <?php endif; ?>
@@ -350,7 +437,7 @@ $product_carousel_2 = get_field('carousel_products_2');
                 if ($product_images) :
                   $first_image = $product_images[0];
                 ?>
-                  <div class="carousel-item" style="background-color: <?=$color?>">
+                  <div class="carousel-item" style="background-color: <?= $color ?>">
                     <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
                   </div>
                 <?php endif; ?>
@@ -365,7 +452,7 @@ $product_carousel_2 = get_field('carousel_products_2');
                 if ($product_images) :
                   $first_image = $product_images[0];
                 ?>
-                  <div class="carousel-item" style="background-color: <?=$color?>">
+                  <div class="carousel-item" style="background-color: <?= $color ?>">
                     <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
                   </div>
                 <?php endif; ?>
@@ -395,7 +482,7 @@ $product_carousel_2 = get_field('carousel_products_2');
                 if ($product_images) :
                   $first_image = $product_images[0];
                 ?>
-                  <div class="carousel-item" style="background-color: <?=$color?>">
+                  <div class="carousel-item" style="background-color: <?= $color ?>">
                     <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
                   </div>
                 <?php endif; ?>
@@ -410,7 +497,7 @@ $product_carousel_2 = get_field('carousel_products_2');
                 if ($product_images) :
                   $first_image = $product_images[0];
                 ?>
-                  <div class="carousel-item" style="background-color: <?=$color?>">
+                  <div class="carousel-item" style="background-color: <?= $color ?>">
                     <img src="<?php echo $first_image['url']; ?>" alt="<?php echo $first_image['alt']; ?>">
                   </div>
                 <?php endif; ?>

@@ -39,11 +39,11 @@ Author URI: https://iconcommerce.com
 }
 
 #carousel-2 .carousel-track {
-  animation: scroll 15s linear infinite;
+  animation: scroll 10s linear infinite;
 }
 
 #carousel-3 .carousel-track {
-  animation: scroll-reverse 15s linear infinite;
+  animation: scroll-reverse 10s linear infinite;
 }
 
 .image-carousel .carousel-item {
