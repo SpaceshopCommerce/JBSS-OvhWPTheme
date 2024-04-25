@@ -32,7 +32,7 @@ if(!class_exists('Icon_Snack_Pedestal_Shortcode')) {
       if (!$product_category) {
         $product_category = '';
       }
-      echo '<div class="w-separator us_custom_c553b43d size_custom" id="pedestal" style="height:155px"><span class="pedestal__title"><span class="pedestal__title-label font--semi">Category: </span><span class="pedestal__title-value font--bold">' . $product_category . '</span> </span></div>';
+      echo '<div class="w-separator us_custom_c553b43d size_custom" id="pedestal" style="height:155px"><span class="pedestal__title"><span class="pedestal__title-label font--semi" style="display:none !important;">Category: </span><span class="pedestal__title-value font--bold">' . $product_category . '</span> </span></div>';
 
       // Get the contents of the buffer and end buffering
       $output = ob_get_clean();

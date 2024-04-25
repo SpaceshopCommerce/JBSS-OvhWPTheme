@@ -8,8 +8,89 @@ Author URI: https://iconcommerce.com
 */
 
 /*Add your own styles here:*/
-/* Test l */ 
+/* Test l */
 
 .test-1 {
   display: none;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/* Homepage Image Carousels */
+
+.image-carousel {
+  width: 100%;
+  height: 100vh;
+  /* Full screen height */
+  overflow: hidden;
+  position: relative;
+  /* animation: fadeIn 1s linear infinite; */
+}
+
+
+.carousel-track {
+  height: auto;
+  animation: scroll-reverse 10s linear infinite;
+  /* Adjust time for different speeds */
+  display: flex;
+  flex-direction: column;
+}
+
+#carousel-2 .carousel-track {
+  animation: scroll 10s linear infinite;
+}
+
+#carousel-3 .carousel-track {
+  animation: scroll-reverse 10s linear infinite;
+}
+
+.image-carousel .carousel-item {
+  width: 100%;
+  height: 20%;
+  /* Adjust based on the number of images */
+  padding: 15%;
+  text-align: center;
+}
+
+.image-carousel .carousel-item img {
+  width: 80%;
+  height: auto;
+  /* Adjust based on the number of images */
+  object-fit: contain;
+  max-height: 100% !important;
+  margin: 0 auto;
+}
+
+/* Keyframes to create the continuous scrolling effect */
+@keyframes scroll {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-50%);
+    /* Move up by half the height of the container */
+  }
+}
+@keyframes scroll-reverse {
+  from {
+    transform: translateY(-50%);
+  }
+
+  to {
+    transform: translateY(0%);
+    /* Move up by half the height of the container */
+  }
+}
+
+// animation to fade in opacity
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
